@@ -4,10 +4,10 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 import csv
 
-urls = ['https://www.nba.com/stats/teams/shooting-efficiency']
+urls = ['https://www.nba.com/stats/teams/opponent']
 driver = webdriver.Chrome('/Users/irfanjamil/chromedriver/chromedriver')
 
-for st in range(2013,2022):
+for st in range(2000,2022):
     end = st+1-2000
     if end < 10:
         end = '0'+str(end)
@@ -20,11 +20,7 @@ for st in range(2013,2022):
         html = driver.page_source
         soup = bs4(html,"html.parser")
         #print(soup.prettify())
-        try:
-            tables = soup.find_all("table", class_="Crom_table__p1iZz")
-        except:
-            print(soup.prettify())
-            raise Exception()
+        tables = soup.find_all("table", class_="Crom_table__p1iZz")
         table = tables[0]
         thead = table.thead
         cols = thead.find_all('th')
@@ -33,11 +29,13 @@ for st in range(2013,2022):
         for col in cols:
             if header_idx == 0:
                 header_idx += 1
-                titles.append('TEAM')
                 continue
             if col.has_attr('hidden'):
                 break
-            title = col['field']
+            try:
+                title = col['title']
+            except:
+                title =  col.string
             titles.append(title)
         list_of_rows = []
         body = table.tbody
@@ -48,6 +46,9 @@ for st in range(2013,2022):
             values = []
             for td in tds:
                 if idx == 0:
+                    idx+=1
+                    continue
+                elif idx == 1:
                     try:
                         span = td.span
                         values.append(span.contents[0])
@@ -57,10 +58,10 @@ for st in range(2013,2022):
                         idx+=1
                     continue    
                 else:
-                    s_val = td.string.replace(',','').replace('%','')
+                    s_val = td.string.replace(',','')
                     values.append(float(s_val))
             list_of_rows.append(values[:])
-        with open(season_str[season_str.find('=')+1:]+'_' + url[url.rfind('/')+1:] + '.csv','w') as f:
+        with open(season_str[season_str.find('=')+1:]+'_general_' + url[url.rfind('/')+1:] + '.csv','w') as f:
             writer = csv.writer(f)
             writer.writerow(titles[:])
             writer.writerows(list_of_rows[:])

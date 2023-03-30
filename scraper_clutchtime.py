@@ -30,9 +30,16 @@ for st in range(2000,2022):
             if header_idx == 0:
                 header_idx += 1
                 continue
+            elif  header_idx == 1:
+                titles.append('TEAM')
+                header_idx+=1
+                continue
             if col.has_attr('hidden'):
                 break
-            title = col.contents[0]
+            try:
+                title =  col['title']
+            except:
+                title = col.string
             titles.append(title)
         list_of_rows = []
         body = table.tbody

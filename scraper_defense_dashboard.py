@@ -33,6 +33,7 @@ for st in range(2013,2022):
         for col in cols:
             if header_idx == 0:
                 header_idx += 1
+                titles.append(col.string)
                 continue
             if col.has_attr('hidden'):
                 break
