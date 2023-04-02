@@ -8,7 +8,7 @@ for st in range(2000, 2022):
         end_str = '0'+str(end)
     else:
         end_str = str(end)
-    datasets = ['general_traditional', 'general_advanced','general_defense','general_opponent','clutch-traditional','clutch-advanced','clutch-opponent','defense-dash-overall','opponent-shots-general','shooting-efficiency']
+    datasets = ['general_traditional', 'general_advanced','general_defense','general_opponent','clutch-traditional','clutch-advanced','clutch-opponent']
     df = pd.read_csv('data/'+st_str+'-'+end_str+'_general_traditional'+'.csv')
     try:
         teams = df['TEAM'].tolist() #teams in NBA for st-st+1 season 
@@ -36,7 +36,7 @@ for st in range(2000, 2022):
         list_rows.append(row[:]) #append team specific row to list of rows
     
     #write data to csv file
-    with  open(st_str+'-'+end_str+'_data.csv','w') as f:
+    with open(st_str+'-'+end_str+'_data.csv','w') as f:
         writer = csv.writer(f)
         writer.writerow(cols)
         writer.writerows(list_rows)
