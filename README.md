@@ -1,4 +1,6 @@
 # nba_playoff_predictions_22_23
-building predictor for upcoming NBA playoffs based on prior NBA playoff data
+building predictor for upcoming NBA playoffs based on historical NBA reg season data and playoff results
 
-data: used BeautifulSoup and Selenium to scrape NBA.com
+data: used BeautifulSoup and Selenium to scrape NBA.com; manually got csv playoff result data from basketball-reference
+
+data/ folder: contains data scraped from NBA.com; data is gathered on a season by season basis for a specific type of data. For example, one type of data was statistics regarding how teams performed in clutch time; a different type of data gathered was how a team's opponents generally performed on a per game basis. Once data was gathered for each season since 2000, I aggregated the data per year so that the multiple datasets per year were combined into a single dataset corresponding to that year. These datasets were titled in the following manner: YYYY-YY_data.csv Then, from basketball reference, I found a csv file with data playoff series results. After reformatting that slightly, I looped thru each series since the 2001 playoffs, retrieved the regular season data during that year for each of the teams competing in the series (which I already had) and aggregated the result of the series and regular season data for the teams into a single vector. data_v1.csv is the collection of these vectors as rows. data_v2.csv removes redundant columns and renames some columns.
