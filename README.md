@@ -17,6 +17,8 @@ data_v5.csv change: win percentage cols were written in decimal form; converted 
 
 augmented_data_v5.csv artificially increases size of dataset
 
-x_train.csv, x_test.csv, y_train.csv, y_test.csv: train/test split followed by select 25 best features according to MI score
+x_train.csv, x_test.csv, y_train.csv, y_test.csv: train/test split on v5 followed by select 25 best features according to MI score
 
-x_train_v2.csv, x_test_v2.csv, y_train_v2.csv, y_test_v2.csv: train/test split followed by select 25 best features according to MI score but also include the other team's corresponding feature (ie: include both  t1 and t2 versions of feature)
+x_train_v2.csv, x_test_v2.csv, y_train_v2.csv, y_test_v2.csv: train/test split on v5 followed by select 25 best features according to MI score but also include the other team's corresponding feature (ie: include both  t1 and t2 versions of feature)
+
+data_v6.csv: starts with v5, and subtracts corresponding columns between t1 and t2 to reduce column size by half and creates 'differential' columns
