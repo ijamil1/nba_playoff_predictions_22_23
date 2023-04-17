@@ -22,3 +22,5 @@ x_train.csv, x_test.csv, y_train.csv, y_test.csv: train/test split on v5 followe
 x_train_v2.csv, x_test_v2.csv, y_train_v2.csv, y_test_v2.csv: train/test split on v5 followed by select 25 best features according to MI score but also include the other team's corresponding feature (ie: include both  t1 and t2 versions of feature)
 
 data_v6.csv: starts with v5, and subtracts corresponding columns between t1 and t2 to reduce column size by half and creates 'differential' columns
+
+data_v5_22_23.csv: 2023 playoffs test data (state of data corresponds to round); ordering of columns should match training data

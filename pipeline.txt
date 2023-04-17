@@ -7,3 +7,4 @@ aggregate_reg_and_playoff_22_23.py
 remove_and_rename_cols_22_23.py 
 convert_v2_to_v3.py
 convert_v3_to_v4_to_v5.py 
+fix_col_ordering.py
