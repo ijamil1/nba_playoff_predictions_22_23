@@ -1,3 +1,6 @@
+#read in 2023 playoff rd1 matchups; read in season data where each row corresponds to a team, 
+# loop thru each playoff matchup, and create data_v1_22_23 csv file where each row corresponds to a playoff
+#matchup and contains the regular season data for the teams comprising the matchup  
 import pandas as pd
 import csv
 
@@ -51,6 +54,11 @@ for idx, pseries in playoffs.iterrows():
     else:  
         t2_data = reg_szn.loc[reg_szn['TEAM']==t2,:]
 
+    if first:
+        header.append('t1_team')
+        header.append('t2_team')
+    row.append(t1)
+    row.append(t2)
     for idx, val in t1_data.items():
         #idx is column name
         if first:

@@ -1,0 +1,9 @@
+Run the following scripts in the order below to go from the 22-23 regular season raw data to data that can be used in the
+models. In the aggregate_reg_and_playoff_22_23.py script, swap out the r1 playoff matchup csv with the appropriate
+matchups in later rounds to get predictions as playoffs progress.
+
+aggregate_data_22_23.py
+aggregate_reg_and_playoff_22_23.py
+remove_and_rename_cols_22_23.py 
+convert_v2_to_v3.py
+convert_v3_to_v4_to_v5.py 

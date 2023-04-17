@@ -1,3 +1,4 @@
+#for 2022-2023 season, create 2022-23_data.csv file where each row contains a team's data for that season
 import pandas as pd
 import csv
 for st in range(2022, 2023):

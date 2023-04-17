@@ -1,3 +1,4 @@
+#reads in v2 data, renames the opponent points cols that were read in strangely from bs4, and writes to v3
 import pandas as pd
 
 renamed_cols = ['t1_general_defense_OPP_PTS_OFF_TOV','t1_general_defense_OPP_PTS_2ND_CHANCE','t1_general_defense_OPP_PTS_FB','t1_general_defense_OPP_PITP','t2_general_defense_OPP_PTS_OFF_TOV','t2_general_defense_OPP_PTS_2ND_CHANCE','t2_general_defense_OPP_PTS_FB','t2_general_defense_OPP_PITP']
