@@ -24,3 +24,5 @@ x_train_v2.csv, x_test_v2.csv, y_train_v2.csv, y_test_v2.csv: train/test split o
 data_v6.csv: starts with v5, and subtracts corresponding columns between t1 and t2 to reduce column size by half and creates 'differential' columns
 
 data_v5_22_23.csv: 2023 playoffs test data (state of data corresponds to round); ordering of columns should match training data
+
+data_v7.csv: includes original data and synthetic data produced by GMMs
